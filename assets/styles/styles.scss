@@ -1,0 +1,213 @@
+// Variables
+$white: #FFF;
+
+// Colors primary
+$violet: hsl(257, 40%, 49%);
+$softMagenta: hsl(300, 69%, 71%);
+
+// Reset CSS
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+
+
+// MOBILE
+body {
+    background-color: $violet;
+    background-image: url("/assets/img/bg-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-position: top center;
+}
+
+// Site wrapper
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    margin: 0 auto;
+    padding: 35px 15px 0 15px;
+}
+
+.header {
+
+    // Huddle logo
+    img {
+        display: inline-block;
+        width: 140px;
+        height: auto;
+        margin-top: 5px;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+    // Image wrapper
+    &__image {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+
+        img {
+            width: 370px;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    // Article description
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            margin-top: 40px;
+            font-size: 27px;
+            color: $white;
+            text-align: center;
+        }
+
+        p {
+            color: $white;
+            text-align: center;
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 13px 80px;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            color: $violet;
+            box-shadow: 0 3px 5px 1px darken($violet, 10%);
+            background-color: $white;
+            transition: all 0.2s;
+
+            &:hover {
+                color: $white;
+                background-color: $softMagenta;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100px;
+
+    a {
+        display: block;
+        margin-left: 10px;
+        text-decoration: none;
+
+        .fa-brands {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            padding: 5px;
+            border: 1px solid $white;
+            border-radius: 50px;
+            color: $white;
+            transition: all 0.2s;
+
+            &:hover {
+                border-color: darken($softMagenta, 10%);
+                color: darken($softMagenta, 10%);
+            }
+        }
+    }
+}
+
+
+// DESKTOP
+@media screen and (min-width: 1440px) {
+    body {
+        background-image: url("/assets/img/bg-desktop.svg");
+        background-size: contain;
+        background-position: -50px, 150px;
+    }
+
+    .wrapper {
+        width: fit-content;
+        padding: 50px 50px 0 50px;
+    }
+
+    .header {
+        img {
+            width: 200px;
+        }
+    }
+
+    .main {
+        flex-direction: row;
+        margin-top: 45px;
+
+        // Image wrapper
+        &__image {
+            width: 50%;
+            margin-top: 35px;
+
+            img {
+                width: auto;
+                height: 100%;
+            }
+        }
+
+        // Paragraph and title block on the right side
+        .description {
+            align-items: flex-start;
+            width: 50%;
+            margin-top: 40px;
+            padding-left: 80px;
+
+            h1 {
+                width: 550px;
+                text-align: left;
+                font-size: 45px;
+            }
+
+            p {
+                width: 550px;
+                text-align: left;
+                font-size: 19px;
+            }
+        }
+    }
+
+    .footer {
+        justify-content: flex-end;
+        height: 80px;
+        padding-right: 50px;
+    }
+}
